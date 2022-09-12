@@ -16,7 +16,7 @@ await consumer.run({
 
         let value = JSON.parse(message.value)
         let from = value["orderid"];
-        if (value["serviceName"] === "Allocation Service" & value["type"] === "Complete Allocation" & value["outcome"] === "SUCcESSFULL") {
+        if (value["serviceName"] === "Allocation Service" & value["type"] === "Complete Allocation" & value["outcome"] === "SUCCESSFULL") {
 
             // get next five days date
             var currentDate = new Date();
