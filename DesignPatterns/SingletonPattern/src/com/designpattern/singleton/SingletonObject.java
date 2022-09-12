@@ -4,38 +4,38 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class SingletonObject {
+public class SinglePersonnObject {
 	
 	//Create an Object
-	private static volatile SingletonObject singletonObject; // = new SingletonObject();
+	private static volatile SingletPersonObject singlePersonObject; // = new SinglePersonObject();
 	private static volatile Connection connection;
 	
 	
-	private SingletonObject() {
-		if (singletonObject !=  null) {
-			throw new RuntimeException("Please use getSingletonObject method"); 
+	private SinglePersonObject() {
+		if (singlePersonObject !=  null) {
+			throw new RuntimeException("Please use getSinglePersonObject method"); 
 		}	
 	}
 
 	
-	public static SingletonObject getSingletonObject() {
+	public static SinglePersonObject getSinglePersonObject() {
 		//Double-checked singleton implementation
-		if(singletonObject==null) {
-			// If it is null, synchronise the SingletonObject class 
-			synchronized (SingletonObject.class) {
-				//Again check the singletonObject is null 
-				if(singletonObject==null) {
-				singletonObject = new SingletonObject();
+		if(singlePersonObject==null) {
+			// If it is null, synchronise the SinglePersonObject class 
+			synchronized (SinglePersonObject.class) {
+				//Again check the singlePersonObject is null 
+				if(singlePersonObject==null) {
+				singlePersonObject = new SinglePersonObject();
 				}
 			}
 			
 		}
-		return singletonObject;
+		return singlePersonObject;
 	}
 	public Connection getConnection() {
 		
 		if(connection == null) {
-			synchronized (SingletonObject.class) {
+			synchronized (SinglePersonObject.class) {
 				if(connection == null) {
 					String url = "";
 					try {
