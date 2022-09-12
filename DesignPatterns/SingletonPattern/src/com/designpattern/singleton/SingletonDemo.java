@@ -1,6 +1,6 @@
 package com.designpattern.singleton;
 
-public class SingletonDemo {
+public class SinglePersonDemo {
 
 	public static void main(String[] args) {
 		
@@ -8,17 +8,17 @@ public class SingletonDemo {
 		Long end;
 		
 		//1st Instance
-		SingletonObject singletonObject1 = SingletonObject.getSingletonObject();
-		System.out.println(singletonObject1);
+		SinglePersonObject singlePersonObject1 = SinglePersonObject.getSinglePersonObject();
+		System.out.println(singlePersonObject1);
 		
 		start = System.currentTimeMillis();
-		//Connection connection = SingletonObject.getConnection();
+		//Connection connection = SinglePersonObject.getConnection();
 		end = System.currentTimeMillis();
 		
 		System.out.println(end-start);
 		//2nd Instance
-		SingletonObject singletonObject2 = SingletonObject.getSingletonObject();
-		System.out.println(singletonObject2);
+		SinglePersonObject singlePersonObject2 = SinglePersonObject.getSinglePersonObject();
+		System.out.println(singlePersonObject2);
 		
 	}
 
