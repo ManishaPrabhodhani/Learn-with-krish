@@ -21,7 +21,7 @@ public class ScheduleController {
     }
 
     @GetMapping("/all")
-    public Schedule getAllSchedules(@RequestParam int id){
+    public Schedule getAllSchedulesById(@RequestParam int id){
         return scheduleService.findDetailsById(id);
 
     }
