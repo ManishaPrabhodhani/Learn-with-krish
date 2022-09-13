@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/order")
@@ -55,6 +56,8 @@ public class OrderController {
 
         return orderService.getAllOrders();
     }
+    
+  
 
     @GetMapping("/dispatchOrders")
     public List<OrderDetails> getAllDispatchedOrders(){
@@ -67,4 +70,10 @@ public class OrderController {
 
         return orderService.findOrderByStationRegNo(id);
     }
+    
+    
+    public Optional<Order> getOrdersById(@RequestParam("id") int id){
+        return orderService.findById(id);
+    }
+    
 }
