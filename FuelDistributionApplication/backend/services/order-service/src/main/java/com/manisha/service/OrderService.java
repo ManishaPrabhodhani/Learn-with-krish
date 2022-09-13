@@ -38,6 +38,9 @@ public class OrderService {
         return order;
     }
 
+     public Optional<Order> findById(int id) {
+        return orderRepository.findById(id);
+    }
 
     // find dispatch details
     public List<OrderDetails> findDispatchOrderDetails() {
