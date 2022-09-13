@@ -14,10 +14,18 @@ public class ScheduleController {
 
     @Autowired
     private ScheduleService scheduleService;
+    
+    @GetMapping("/allSchedules")
+    public List<Schedule> getAllSchedules() {
+        return scheduleService.getAllSchedules();
+    }
 
     @GetMapping("/all")
     public Schedule getAllSchedules(@RequestParam int id){
         return scheduleService.findDetailsById(id);
 
     }
+    
+     
+
 }
