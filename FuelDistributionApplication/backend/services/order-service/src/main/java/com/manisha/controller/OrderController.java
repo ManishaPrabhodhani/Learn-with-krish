@@ -36,12 +36,6 @@ public class OrderController {
     @PostMapping("/create")
     public  Order create(@RequestBody Order order){
 
-/*
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = new Date();
-        order.setDate(formatter.format(date));
-        order.setOrderId((int) (System.currentTimeMillis()));  */
-
      // producer.publish(new Event("order service", "New Order",String.valueOf(order.getOrderId()),String.valueOf(order.getOrderId()),"PENDING"));
         Status status=new Status();
         status.setOrderId(order.getOrderId());
