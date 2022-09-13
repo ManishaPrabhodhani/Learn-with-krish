@@ -18,6 +18,11 @@ public class ScheduleService {
         return scheduleRepository.save(schedule);
 
     }
+    
+    public List<Schedule> getAllSchedules() {
+        List<Schedule> schedule= (List<Schedule>) scheduleRepository.findAll();
+        return schedule;
+    }
 
     public Schedule findDetailsById(int id) {
         List <Schedule> list=scheduleRepository.findAll();
