@@ -32,16 +32,16 @@ public class Consumer {
 
     @KafkaListener(topics = "order-topic", groupId = "order-group")
 
-    public void readMessages(String message) {
+    public void read(String message) {
         Event event = new Gson().fromJson(message, Event.class);
         if (event.getType().equals("CreateNewOrder")) {
             Optional<Stock> stock = stockService.get(Integer.parseInt(event.getStockid()));
 
             if (stock.isPresent()) {
                 double orderQty = Double.parseDouble(event.getFuelQty());
-                double availableQty = stock.get().getAvailableStock();
-                if (availableQty >= orderQty) {
-                    if (availableQty >= allocateStockService.allocatedFuelOrder() + orderQty) {
+                double availableStock = stock.get().getAvailableStock();
+                if (availableStock >= orderQty) {
+                    if (availableStock >= allocateStockService.allocatedFuelOrder() + orderQty) {
 
 
                         Allocation allocation = new Allocation();
@@ -53,16 +53,13 @@ public class Consumer {
 
                         producer.publish(new Event("Allocation_service", "Allocation_Complete", event.getUniqueId(), event.getFuelQty(), event.getOrderid(), event.getStockid(), "SUCCESSFUL"));
                         scheduleProducer.publish(new Event("Allocation_service", "Allocation_Complete", event.getUniqueId(), event.getFuelQty(), event.getOrderid(), event.getStockid(), "SUCCESSFUL"));
-                    } else {
-                        logger.info("NO STOCK AVAILABLE");
-                    }
+                      }
+                } else {
 
+                    logger.info("No Stock Found for Allocation");
                 }
-
-
             }
-
-
         }
+
     }
 }
