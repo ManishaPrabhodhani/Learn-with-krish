@@ -1,0 +1,107 @@
+
+<app-navbar></app-navbar>
+
+<div class="imagebg">
+    <div id="container">
+        <div class="row align-self-left">           
+        </div>
+        <div class="d-flex vh-100 justify-content-center">
+            <div class="row align-self-center">
+                <div class="card mr-5" style="width:full">
+                    <br>
+                    <form class="row g-3">
+                        <h4>Order Status</h4>
+                        <div class="col-auto">
+                            
+                           
+                            <input type="number" class="form-control" id="inputPassword2"  placeholder="Enter your order id">
+                        </div>
+                        <div class="col-auto">
+                            <button  type="submit" class="btn btn btn-danger">Search</button>
+                        </div>
+    
+    
+    
+                    </form>
+    
+                    <br>
+                   
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                              
+                                <th>Order ID</th>                               
+                                <th>Allocation Status </th>
+                                <th>Schedule Status </th>
+                                <th>Dispatch Status</th>
+                                
+                                
+                                
+                                
+                               
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr *ngFor="let get of posts | async"> -->
+                              <tr  class="table-danger" >
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
+                                
+                                 
+                            </tr>
+    
+                           <ng-template #second>
+    
+                            <tr class="table-success" >
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                 
+                            </tr>
+                           </ng-template>
+    
+                           <ng-template #third>
+                            <tr class="table-success" >
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><button class="btn btn-success" >Order Delivered</button></td>
+                                 
+                            </tr> 
+                           </ng-template>
+    
+    <!-- 
+                            <tr *ngIf="data.diliverDate=='null'" class="table-success" >
+                                <td>{{data.orderId}}</td>
+                                <td>{{data.allocation}}</td>
+                                <td>{{data.schedule}}</td>
+                                <td>{{data.dispatch}}</td>
+                                <td>{{scheduleData.date}}</td>
+                                <td>{{scheduleData.time}}</td>
+                                <td><button class="btn btn-success">Order Delivered</button></td>
+                                 
+                            </tr>  -->
+    
+    
+                        </tbody>
+                    
+                    </table>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
